@@ -1,0 +1,173 @@
+@import "tailwindcss";
+
+@theme {
+    --color-luxury-white: #ffffff;
+    --color-luxury-ivory: #fdfbf7;
+    --color-luxury-gold: #c5a021;
+    --color-luxury-gold-light: #dfbd7e;
+    --color-luxury-gold-dark: #8e6d10;
+    --color-luxury-dark: #1a1a1a;
+    --color-rose-petal: #f8d7da;
+    --color-rose-gold: #b76e79;
+
+    --font-serif: "Playfair Display", serif;
+    --font-sans: "Lato", sans-serif;
+
+    --animate-3d-reveal: reveal3d 2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    --animate-float-slow: float-slow 10s ease-in-out infinite;
+    --animate-sway: sway 15s ease-in-out infinite;
+    --animate-leaf-drift: leafDrift 12s ease-in-out infinite;
+    --animate-petal-fall: petalFall 10s linear infinite;
+
+    @keyframes reveal3d {
+        0% {
+            transform: perspective(2000px) rotateX(-30deg) translateY(100px) translateZ(-200px);
+            opacity: 0;
+        }
+
+        100% {
+            transform: perspective(2000px) rotateX(0) translateY(0) translateZ(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes float-slow {
+
+        0%,
+        100% {
+            transform: translateY(0) rotate(0);
+        }
+
+        50% {
+            transform: translateY(-30px) rotate(5deg);
+        }
+    }
+
+    @keyframes sway {
+
+        0%,
+        100% {
+            transform: rotate(-5deg) translateX(0);
+        }
+
+        50% {
+            transform: rotate(5deg) translateX(10px);
+        }
+    }
+
+    @keyframes leafDrift {
+
+        0%,
+        100% {
+            transform: translate(0, 0) rotate(0) translateZ(0);
+        }
+
+        33% {
+            transform: translate(20px, -30px) rotate(15deg) translateZ(50px);
+        }
+
+        66% {
+            transform: translate(-15px, -60px) rotate(-10deg) translateZ(100px);
+        }
+    }
+
+    @keyframes petalFall {
+        0% {
+            transform: translateY(-10vh) translateX(0) rotate(0);
+            opacity: 0;
+        }
+
+        10% {
+            opacity: 1;
+        }
+
+        90% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: translateY(100vh) translateX(100px) rotate(360deg);
+            opacity: 0;
+        }
+    }
+}
+
+@layer utilities {
+    .glass-3d {
+        background-color: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(40px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.1);
+        transform-style: preserve-3d;
+    }
+
+    .asym-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    .shadow-luxe {
+        box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.05), 0 20px 40px -10px rgba(197, 160, 33, 0.05);
+    }
+
+    .floral-frame {
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: -1rem;
+            border: 1px solid rgba(197, 160, 33, 0.2);
+            z-index: -10;
+            clip-path: polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%);
+        }
+    }
+
+    .rose-shadow {
+        filter: drop-shadow(0 0 15px rgba(183, 110, 121, 0.3));
+    }
+
+    .gallery-item {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.7s;
+
+        &:hover img {
+            transform: scale(1.1) rotate(2deg);
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            opacity: 0;
+            transition: opacity 0.7s;
+            pointer-events: none;
+            margin: 1rem;
+        }
+
+        &:hover::after {
+            opacity: 1;
+        }
+    }
+
+    .reveal-hidden {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 2000ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .reveal-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .perspective-2000 {
+        perspective: 2000px;
+    }
+
+    .preserve-3d {
+        transform-style: preserve-3d;
+    }
+}

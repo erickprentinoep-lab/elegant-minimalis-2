@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aria & Elara — Premium Minimalist Wedding</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <!-- Tailwind CSS (Local Build) -->
+    <link rel="stylesheet" href="dist/output.css">
+</head>
+
+<body
+    class="bg-luxury-ivory text-luxury-dark font-sans selection:bg-luxury-gold selection:text-white overflow-x-hidden">
+
+    <!-- Rose Particle System (Dynamic via JS or CSS anim) -->
+    <div id="rose-particles" class="fixed inset-0 pointer-events-none z-[50] overflow-hidden"></div>
+
+    <!-- Floral Parallax Background Elements (Fixed) -->
+    <div class="fixed inset-0 pointer-events-none z-[-1] overflow-hidden">
+        <div class="absolute top-[-5%] left-[-5%] text-rose-gold/10 text-9xl animate-leaf-drift opacity-40 rose-shadow">
+            <i class="fas fa-seedling rotate-[120deg]"></i>
+        </div>
+        <div class="absolute bottom-[-5%] right-[-10%] text-rose-gold/10 text-[20rem] animate-sway opacity-30 rose-shadow"
+            style="animation-delay: -5s;">
+            <i class="fas fa-spa"></i>
+        </div>
+        <div
+            class="absolute top-[40%] right-[-5%] text-luxury-gold/5 text-[15rem] animate-float-slow opacity-20 rose-shadow">
+            <i class="fas fa-wine-glass-alt rotate-45"></i>
+        </div>
+    </div>
+
+    <!-- Opening Overlay -->
+    <section id="overlay"
+        class="fixed inset-0 z-[100] flex items-center justify-center bg-white transition-all duration-[2000ms] ease-in-out">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_#fdfbf7_0%,_#ffffff_100%)] opacity-80"></div>
+
+        <!-- Opening Roses -->
+        <div class="absolute top-[10%] left-[10%] text-rose-gold/30 text-7xl animate-sway">
+            <i class="fas fa-spa"></i>
+        </div>
+        <div class="absolute bottom-[10%] right-[10%] text-rose-gold/30 text-7xl animate-sway"
+            style="animation-delay: -2s;">
+            <i class="fas fa-spa rotate-180"></i>
+        </div>
+
+        <div class="relative z-10 flex flex-col items-center">
+            <div id="opening-card" class="w-64 h-80 md:w-80 md:h-96 relative perspective-2000 mb-12">
+                <div
+                    class="w-full h-full glass-3d preserve-3d transition-transform duration-1000 group cursor-pointer hover:rotate-y-12">
+                    <div
+                        class="absolute inset-0 p-8 flex flex-col items-center justify-center text-center border border-luxury-gold/20 m-4">
+                        <div class="text-rose-gold mb-6 animate-pulse scale-125">
+                            <i class="fas fa-fan text-4xl"></i>
+                        </div>
+                        <h2 class="font-serif text-luxury-gold text-[0.7rem] tracking-[0.6em] uppercase mb-4">You're
+                            Invited To</h2>
+                        <h1 class="font-serif text-5xl font-bold text-luxury-dark mb-4">A <span
+                                class="text-rose-gold">&</span> E</h1>
+                        <div class="w-12 h-px bg-rose-gold/30 my-6"></div>
+                        <p class="text-[0.6rem] uppercase tracking-[0.3em] text-luxury-dark/60 italic">Minggu, 20
+                            September 2026</p>
+                    </div>
+                </div>
+            </div>
+
+            <button id="open-btn"
+                class="group relative px-14 py-6 bg-luxury-dark text-white font-bold tracking-[0.4em] uppercase overflow-hidden transition-all duration-700 hover:tracking-[0.6em] shadow-luxe">
+                <span class="relative z-10">Buka Undangan</span>
+                <div
+                    class="absolute inset-x-0 bottom-0 h-0 bg-rose-gold group-hover:h-full transition-all duration-500">
+                </div>
+            </button>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="main-content" class="hidden opacity-0">
+
+        <!-- Asymmetrical Hero -->
+        <section class="min-h-screen relative asym-grid items-center px-6 md:px-20 py-20 overflow-hidden">
+            <!-- Background Text -->
+            <div
+                class="absolute top-0 right-0 text-rose-gold/5 text-[35rem] font-serif leading-none select-none -translate-y-20 translate-x-32 rotate-12">
+                Rose</div>
+
+            <div class="col-span-12 md:col-start-2 md:col-span-7 z-10">
+                <div class="reveal-hidden">
+                    <span class="font-serif text-rose-gold text-2xl tracking-[0.5em] uppercase mb-8 block">— Bloom With
+                        Us</span>
+                    <h1 class="font-serif text-8xl md:text-[12rem] font-bold leading-[0.8] text-luxury-dark mb-12">
+                        Aria <br>
+                        <span class="md:ml-24 italic text-rose-gold rose-shadow">Elara</span>
+                    </h1>
+                </div>
+
+                <div class="flex flex-col md:flex-row gap-16 items-start md:items-center reveal-hidden"
+                    style="transition-delay: 500ms;">
+                    <div class="bg-luxury-dark text-white p-10 md:p-16 shadow-luxe relative">
+                        <div class="absolute -top-4 -right-4 text-rose-gold text-4xl"><i class="fas fa-spa"></i></div>
+                        <p class="font-serif text-5xl mb-3">20</p>
+                        <p class="uppercase tracking-[0.3em] text-[0.6rem] opacity-70">September 2026</p>
+                    </div>
+                    <div class="max-w-sm">
+                        <p class="text-luxury-dark/70 italic text-lg leading-loose border-l-2 border-rose-gold/20 pl-8">
+                            "Kisah cinta yang merekah seindah bunga mawar di pagi hari, abadi dalam janji suci."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Floating Image -->
+            <div class="col-span-12 md:col-start-9 md:col-span-4 mt-20 md:mt-0 relative reveal-hidden"
+                style="transition-delay: 800ms;">
+                <div
+                    class="w-full aspect-[4/5] overflow-hidden shadow-luxe floral-frame rotate-6 hover:rotate-0 transition-all duration-1000 group">
+                    <img src="assets/hero.jpg" alt="Roses"
+                        class="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-[2000ms]">
+                </div>
+                <!-- 3D Overlapping Rose -->
+                <div
+                    class="absolute -top-10 -right-10 text-rose-gold text-9xl animate-float-slow opacity-90 z-20 rose-shadow">
+                    <i class="fas fa-spa"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Asymmetrical Couple Section -->
+        <section class="py-40 px-6 md:px-20 bg-white relative overflow-hidden">
+            <!-- Decorative Rose Branch -->
+            <div class="absolute top-[20%] right-[-5%] text-rose-gold/5 text-[20rem] -rotate-12 select-none"><i
+                    class="fas fa-leaf"></i></div>
+
+            <div class="asym-grid gap-y-40">
+                <!-- Groom -->
+                <div
+                    class="col-span-12 md:col-start-1 md:col-span-5 flex flex-col items-center md:items-start text-center md:text-left reveal-hidden">
+                    <div class="relative mb-20 group">
+                        <div
+                            class="w-64 h-80 md:w-80 md:h-[35rem] overflow-hidden shadow-luxe floral-frame -rotate-6 transition-transform group-hover:rotate-0 duration-1000">
+                            <img src="assets/pria.jpg" alt="Groom"
+                                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000">
+                        </div>
+                        <div class="absolute -top-12 -right-12 text-rose-gold text-8xl animate-sway rose-shadow">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                    </div>
+                    <h2 class="font-serif text-6xl font-bold mb-6 tracking-tight">Aria Dewantara</h2>
+                    <p class="text-rose-gold uppercase tracking-[0.5em] text-[0.7rem] mb-10 font-bold">Putra Tercinta
+                        Dari</p>
+                    <p class="text-luxury-dark/60 italic text-xl font-light leading-relaxed">Bapak Moch. Pramana <br> &
+                        <br> Ibu Siti Larasati
+                    </p>
+                </div>
+
+                <!-- Bride -->
+                <div
+                    class="col-span-12 md:col-start-8 md:col-span-5 flex flex-col items-center md:items-end text-center md:text-right reveal-hidden">
+                    <div class="relative mb-20 md:order-last md:mt-24 group">
+                        <div
+                            class="w-64 h-80 md:w-80 md:h-[35rem] overflow-hidden shadow-luxe floral-frame rotate-6 transition-transform group-hover:rotate-0 duration-1000">
+                            <img src="assets/wanita.jpg" alt="Bride"
+                                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000">
+                        </div>
+                        <div class="absolute -bottom-12 -left-12 text-rose-gold text-8xl animate-sway rose-shadow"
+                            style="animation-delay: -3s;">
+                            <i class="fas fa-spa rotate-180"></i>
+                        </div>
+                    </div>
+                    <h2 class="font-serif text-6xl font-bold mb-6 tracking-tight">Elara Kamila</h2>
+                    <p class="text-rose-gold uppercase tracking-[0.5em] text-[0.7rem] mb-10 font-bold">Putri Tercinta
+                        Dari</p>
+                    <p class="text-luxury-dark/60 italic text-xl font-light leading-relaxed">Bapak Dr. Baskara <br> &
+                        <br> Ibu Sekar Arum
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section (Asymmetrical Masonry) -->
+        <section class="py-40 bg-white px-6 md:px-20 overflow-hidden">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-32 reveal-hidden">
+                    <span class="font-serif text-rose-gold text-2xl tracking-[0.4em] uppercase mb-6 block">— Moments of
+                        Love</span>
+                    <h2 class="font-serif text-6xl md:text-8xl font-bold text-luxury-dark tracking-tighter">Our <span
+                            class="text-rose-gold italic">Gallery</span></h2>
+                </div>
+
+                <div class="asym-grid gap-6 md:gap-10">
+                    <!-- Gallery Item 1 -->
+                    <div class="col-span-12 md:col-span-4 md:mt-20 reveal-hidden">
+                        <div class="gallery-item group shadow-luxe aspect-[3/4]">
+                            <img src="assets/galery1.jpg" alt="Gallery 1"
+                                class="w-full h-full object-cover grayscale group-hover:grayscale-0">
+                        </div>
+                    </div>
+                    <!-- Gallery Item 2 -->
+                    <div class="col-span-12 md:col-span-8 reveal-hidden" style="transition-delay: 200ms;">
+                        <div class="gallery-item group shadow-luxe aspect-[16/9]">
+                            <img src="assets/galery2.jpg" alt="Gallery 2"
+                                class="w-full h-full object-cover grayscale group-hover:grayscale-0">
+                        </div>
+                    </div>
+                    <!-- Gallery Item 3 -->
+                    <div class="col-span-12 md:col-span-7 reveal-hidden" style="transition-delay: 400ms;">
+                        <div class="gallery-item group shadow-luxe aspect-[1/1] floral-frame">
+                            <img src="assets/galery3.jpg" alt="Gallery 3"
+                                class="w-full h-full object-cover grayscale group-hover:grayscale-0">
+                        </div>
+                    </div>
+                    <!-- Gallery Item 4 -->
+                    <div class="col-span-12 md:col-span-5 md:-mt-20 reveal-hidden" style="transition-delay: 600ms;">
+                        <div class="gallery-item group shadow-luxe aspect-[4/5]">
+                            <img src="assets/galery4.jpg" alt="Gallery 4"
+                                class="w-full h-full object-cover grayscale group-hover:grayscale-0">
+                        </div>
+                    </div>
+                    <!-- Gallery Item 5 -->
+                    <div class="col-span-12 md:col-start-3 md:col-span-8 reveal-hidden"
+                        style="transition-delay: 800ms;">
+                        <div class="gallery-item group shadow-luxe aspect-[21/9]">
+                            <img src="assets/galery5.jpg" alt="Gallery 5"
+                                class="w-full h-full object-cover grayscale group-hover:grayscale-0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Event Details -->
+        <section class="py-40 px-6 bg-luxury-ivory relative overflow-hidden">
+            <!-- Floating Roses -->
+            <div class="absolute top-[10%] left-[-5%] text-rose-gold/10 text-[15rem] animate-leaf-drift"><i
+                    class="fas fa-spa"></i></div>
+
+            <div class="max-w-6xl mx-auto asym-grid gap-16 items-stretch">
+                <div class="col-span-12 md:col-span-5 flex flex-col justify-center reveal-hidden">
+                    <span class="text-rose-gold text-4xl mb-4"><i class="fas fa-calendar-alt"></i></span>
+                    <h2 class="font-serif text-6xl md:text-8xl mb-10 leading-none tracking-tighter">The <br> <span
+                            class="text-rose-gold italic rose-shadow">Celebration</span></h2>
+
+                    <!-- Countdown -->
+                    <div class="flex gap-10 p-10 bg-white shadow-luxe relative">
+                        <div class="absolute -top-4 -left-4 w-8 h-8 bg-rose-gold"></div>
+                        <div class="text-center">
+                            <span id="days" class="block text-5xl font-serif">00</span>
+                            <p class="text-[0.6rem] uppercase tracking-widest text-rose-gold mt-2">Days</p>
+                        </div>
+                        <div class="text-center">
+                            <span id="hours" class="block text-5xl font-serif">00</span>
+                            <p class="text-[0.6rem] uppercase tracking-widest text-rose-gold mt-2">Hours</p>
+                        </div>
+                        <div class="text-center">
+                            <span id="minutes" class="block text-5xl font-serif">00</span>
+                            <p class="text-[0.6rem] uppercase tracking-widest text-rose-gold mt-2">Mins</p>
+                        </div>
+                        <div class="text-center">
+                            <span id="seconds" class="block text-5xl font-serif text-rose-gold">00</span>
+                            <p class="text-[0.6rem] uppercase tracking-widest text-rose-gold mt-2">Secs</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-span-12 md:col-start-7 md:col-span-6 space-y-12">
+                    <div class="bg-white p-12 glass-3d reveal-hidden border-l-4 border-rose-gold">
+                        <h3 class="font-serif text-3xl font-bold mb-8">Pemberkatan Nikah</h3>
+                        <p class="text-sm text-luxury-dark/60 mb-8 font-light italic">"Apa yang telah dipersatukan
+                            Allah, tidak boleh diceraikan manusia."</p>
+                        <div class="space-y-4 mb-10">
+                            <p class="flex items-center gap-4 text-sm font-bold"><i
+                                    class="fas fa-clock text-rose-gold"></i> 09.00 — 10.30 WIB</p>
+                            <p class="flex items-center gap-4 text-sm font-bold"><i
+                                    class="fas fa-map-marker-alt text-rose-gold"></i> Gereja Katedral Jakarta</p>
+                        </div>
+                        <a href="#"
+                            class="inline-block bg-luxury-dark text-white px-8 py-3 text-[0.6rem] tracking-widest uppercase hover:bg-rose-gold transition-all shadow-md">Open
+                            Maps</a>
+                    </div>
+
+                    <div class="bg-white p-12 glass-3d reveal-hidden border-r-4 border-rose-gold"
+                        style="transition-delay: 300ms;">
+                        <h3 class="font-serif text-3xl font-bold mb-8">Resepsi Pernikahan</h3>
+                        <p class="text-sm text-luxury-dark/60 mb-8 font-light italic">"Merayakan kebahagiaan bersama
+                            keluarga dan sahabat terdekat."</p>
+                        <div class="space-y-4 mb-10">
+                            <p class="flex items-center gap-4 text-sm font-bold"><i
+                                    class="fas fa-clock text-rose-gold"></i> 19.00 — 21.00 WIB</p>
+                            <p class="flex items-center gap-4 text-sm font-bold"><i
+                                    class="fas fa-map-marker-alt text-rose-gold"></i> Grand Ballroom Mulia, Jakarta</p>
+                        </div>
+                        <a href="#"
+                            class="inline-block bg-luxury-dark text-white px-8 py-3 text-[0.6rem] tracking-widest uppercase hover:bg-rose-gold transition-all shadow-md">Open
+                            Maps</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP -->
+        <section class="py-48 px-6 text-center bg-white relative overflow-hidden">
+            <!-- Falling Petals Container -->
+            <div class="absolute inset-0 z-0 opacity-40 pointer-events-none" id="falling-petals"></div>
+
+            <div class="max-w-3xl mx-auto relative z-10 glass-3d py-24 px-10 shadow-luxe floral-frame">
+                <span class="text-rose-gold text-2xl mb-6 block"><i class="fas fa-envelope-open-text"></i></span>
+                <h2 class="font-serif text-5xl md:text-7xl mb-10 tracking-tight">Are You Coming?</h2>
+                <p class="text-luxury-dark/50 mb-16 italic text-lg">Kehadiran Anda adalah kado terindah bagi pernikahan
+                    kami.</p>
+                <a href="https://wa.me/628123456789"
+                    class="bg-luxury-dark text-white px-16 py-6 tracking-[0.6em] uppercase text-xs hover:bg-rose-gold hover:tracking-[0.8em] transition-all inline-block shadow-2xl">
+                    Confirm RSVP
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-32 bg-luxury-ivory text-center border-t border-rose-gold/10">
+            <h2 class="font-serif text-4xl mb-6 tracking-tighter">Aria <span class="text-rose-gold">&</span> Elara</h2>
+            <div class="flex justify-center gap-8 text-rose-gold/40 text-2xl mb-12">
+                <i class="fas fa-spa animate-sway"></i>
+                <i class="fas fa-heart scale-150 text-rose-gold/20"></i>
+                <i class="fas fa-spa animate-sway" style="animation-delay: -2s;"></i>
+            </div>
+            <!-- Music Toggle -->
+            <div id="music-toggle" class="fixed bottom-8 right-8 z-[100] hidden flex items-center justify-center">
+                <button
+                    class="w-14 h-14 bg-luxury-dark text-luxury-gold-light rounded-full shadow-luxe border border-luxury-gold/30 flex items-center justify-center animate-sway hover:scale-110 transition-all">
+                    <i id="music-icon" class="fas fa-music text-xl"></i>
+                </button>
+            </div>
+
+            <!-- SoundCloud Hidden Widget -->
+            <iframe id="sc-widget" style="position: absolute; left: -9999px;"
+                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/romanticpiano-scmusic/sets/waterfall-calm-piano-music&auto_play=false"></iframe>
+
+            <script src="https://w.soundcloud.com/player/api.js"></script>
+            <script src="main.js"></script>
+</body>
+
+</html>

@@ -1,5 +1,6 @@
 node_modules/
-dist/
+# dist atau output.css harus ada di github biar onlinenya jalan
+# dist/
 .DS_Store
 .env
 npm-debug.log*
